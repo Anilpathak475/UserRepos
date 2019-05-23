@@ -1,0 +1,23 @@
+package com.github.user.network.model
+
+import androidx.room.Dao
+import androidx.room.Query
+import com.savedroid.wish.database.BaseDao
+
+/**
+ *    Wrapper for Api responses
+ *   @param exception Returns thrown exception or null if successful request
+ *   @param data Returns response object or null if empty object or not successful
+ *   @param statusCode Returns the request state or -1 if request does not happen due to internet
+ *   or similar connectivity issues
+ */
+class Wrapper<T>(
+        val exception: Exception? = null,
+        val data: T? = null,
+        val statusCode: StatusCode
+)
+
+inline class StatusCode(val code: Int)
+
+
+
